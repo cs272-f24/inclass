@@ -4,12 +4,6 @@ import (
 	"fmt"
 )
 
-func printArray(arr [3]int) {
-	for pos, val := range arr {
-		fmt.Printf("arr[%d] = %d\n", pos, val)
-	}
-}
-
 func main() {
 
 	var arr [3]int
