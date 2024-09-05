@@ -34,4 +34,9 @@ func main() {
 	c := MakeCar("Ford", "Mustang", 1964)
 
 	c.Print()
+
+	// Use make() when you want to initialize internal
+	// data structures to given size, potentially
+	// reducing realloc overhead
+	sl := make([]int, 5, 10)
 }
