@@ -12,6 +12,7 @@ type SearchHit struct {
 }
 
 func main() {
+	//http.HandleFunc("/top10", )
 	http.HandleFunc("/search", func(w http.ResponseWriter, r *http.Request) {
 		//term := r.URL.Query().Get("term")
 		w.Header().Set("Content-Type", "text/html")
@@ -20,12 +21,15 @@ func main() {
 			{"/foo.html", 5},
 			{"/bar.html", 6},
 		}
-		body := "<ol> {{range .}} <li> {{.URL}} {{.Count}}</li> {{end}} </ol>"
-		tmpl, err := template.New("demo").Parse(body)
+
+		tmpl, err := template.New("demo.tmpl").ParseFiles("demo.tmpl")
 		if err != nil {
 			fmt.Printf("Parse returned %v\n", err)
 		}
-		tmpl.Execute(w, hits)
+		err = tmpl.Execute(w, hits)
+		if err != nil {
+			fmt.Println("Execute returned ", err)
+		}
 	})
 
 	http.Handle("/", http.FileServer(http.Dir("static")))

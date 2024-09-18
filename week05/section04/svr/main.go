@@ -11,8 +11,15 @@ type Hit struct {
 	Count int
 }
 
+type TemplateData struct {
+	Hits  []Hit
+	Other int
+	More  string
+}
+
 func main() {
 	http.Handle("/", http.FileServer(http.Dir("static")))
+	http.Handle("/top10", http.FileServer(http.Dir("top10")))
 	http.HandleFunc("/search", func(w http.ResponseWriter, r *http.Request) {
 		//searchTerm := r.URL.Query().Get("term")
 		w.Header().Set("Content-Type", "text/html")
