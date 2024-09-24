@@ -6,6 +6,7 @@ import (
 	"text/template"
 )
 
+// Add a really helpful comment
 type SearchHit struct {
 	URL   string
 	Count int
