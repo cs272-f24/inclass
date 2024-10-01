@@ -26,3 +26,5 @@ go.work.sum
 
 # Finder stuff
 .DS_Store
+
+*.db
