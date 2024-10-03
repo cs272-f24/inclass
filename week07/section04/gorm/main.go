@@ -22,8 +22,8 @@ func main() {
 	// Create or migrate tables using Go type reflection
 	db.AutoMigrate(&Customer{})
 
-	cust := Customer{Name: "John Smith", Height: 65}
+	// cust :=
 
 	// Insert row into DB
-	db.Create(&cust)
+	db.Create(&Customer{Name: "John Smith", Height: 65})
 }
